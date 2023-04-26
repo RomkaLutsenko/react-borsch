@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
 
-const BorschSkeleton = () => (
+export const BorschSkeleton = () => (
     <ContentLoader
         className="borsch-block"
         speed={2}
@@ -18,5 +18,3 @@ const BorschSkeleton = () => (
         <rect x="125" y="425" rx="10" ry="10" width="150" height="40" />
     </ContentLoader>
 )
-
-export default BorschSkeleton

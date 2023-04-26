@@ -52,5 +52,6 @@ module.exports = {
         'react/no-array-index-key': 'off',
         semi: 'off',
         'import/no-extraneous-dependencies': 'off',
+        'react/jsx-tag-spacing': 'off',
     },
 }

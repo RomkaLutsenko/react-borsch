@@ -53,5 +53,6 @@ module.exports = {
         semi: 'off',
         'import/no-extraneous-dependencies': 'off',
         'react/jsx-tag-spacing': 'off',
+        quotes: 'off',
     },
 }

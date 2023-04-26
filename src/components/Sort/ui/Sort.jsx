@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 
-export const Sort = () => {
+// value подвязан и к span'у и к popup'у и к ключу popup'а
+export const Sort = ({ value, setValue }) => {
     const [popup, setPopup] = useState(false);
-    const list = ['популярности', 'цене', 'алфавиту'];
-    // sort подвязан и к span'у и к popup'у и к ключу popup'а
-    const [sort, setSort] = useState('');
+    const list = [
+        { name: 'популярности (убыванию)', sortProperty: 'rating' },
+        { name: 'популярности (возрастанию)', sortProperty: '-rating' },
+        { name: 'цене (убыванию)', sortProperty: 'price' },
+        { name: 'цене (возрастанию)', sortProperty: '-price' },
+        { name: 'алфавиту (убыванию)', sortProperty: 'title' },
+        { name: 'алфавиту (возрастанию)', sortProperty: '-title' },
+    ];
 
     const toggleSort = (i) => {
-        setSort(i);
+        setValue(i);
         setPopup(false);
     };
 
@@ -27,18 +33,18 @@ export const Sort = () => {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span onClick={() => setPopup(!popup)}>{sort || 'популярности'}</span>
+                <span onClick={() => setPopup(!popup)}>{value.name || 'популярности'}</span>
             </div>
             {popup && (
                 <div className="sort__popup">
                     <ul>
-                        {list.map((name) => (
+                        {list.map((obj) => (
                             <li
-                                key={name}
-                                onClick={() => toggleSort(name)}
-                                className={sort === name ? 'active' : ''}
+                                key={obj.name}
+                                onClick={() => toggleSort(obj)}
+                                className={value.sortProperty === obj.sortProperty ? 'active' : ''}
                             >
-                                {name}
+                                {obj.name}
                             </li>
                         ))}
                     </ul>

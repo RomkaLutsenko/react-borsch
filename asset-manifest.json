@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-borsch/static/css/main.213ad23f.css",
+    "main.js": "/react-borsch/static/js/main.b1a1d949.js",
+    "static/media/Borsch-logo.png": "/react-borsch/static/media/Borsch-logo.5c8a0072a921b1fa1edc.png",
+    "index.html": "/react-borsch/index.html",
+    "main.213ad23f.css.map": "/react-borsch/static/css/main.213ad23f.css.map",
+    "main.b1a1d949.js.map": "/react-borsch/static/js/main.b1a1d949.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.213ad23f.css",
+    "static/js/main.b1a1d949.js"
+  ]
+}

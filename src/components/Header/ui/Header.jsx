@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/img/Borsch-logo.png';
+import { Search } from "../../Search";
 
 export const Header = () => {
     return (
@@ -15,6 +16,7 @@ export const Header = () => {
                         </div>
                     </div>
                 </Link>
+                <Search />
                 <Link to="/cart">
                     <div className="header__cart">
                         <a href="/" className="button button--cart">

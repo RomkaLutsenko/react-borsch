@@ -54,5 +54,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'react/jsx-tag-spacing': 'off',
         quotes: 'off',
+        'react/jsx-no-constructed-context-values': 'off',
+        'import/no-cycle': 'off',
     },
 }

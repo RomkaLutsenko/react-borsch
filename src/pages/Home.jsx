@@ -46,7 +46,7 @@ export const Home = () => {
                 <Categories value={categoryId} setValue={setCategoryId} />
                 <Sort value={sort} setValue={setSort} />
             </div>
-            <h2 className="content__title">Все пиццы</h2>
+            <h2 className="content__title">Весь борщ</h2>
             <div className="content__items">
                 {isLoading
                     ? [...new Array(6)]

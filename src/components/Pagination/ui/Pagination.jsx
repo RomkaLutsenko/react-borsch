@@ -2,7 +2,7 @@ import React from 'react';
 import ReactPaginate from "react-paginate";
 import cls from "./Pagination.module.scss"
 
-export const Pagination = ({ onChange }) => {
+export const Pagination = ({ currentPage, onChange }) => {
     return (
         <ReactPaginate
             className={cls.Pagination}
@@ -11,6 +11,7 @@ export const Pagination = ({ onChange }) => {
             onPageChange={(e) => onChange(e.selected + 1)}
             pageRangeDisplayed={8}
             pageCount={3}
+            forcePage={currentPage - 1}
             previousLabel="< "
             renderOnZeroPageCount={null}
         />

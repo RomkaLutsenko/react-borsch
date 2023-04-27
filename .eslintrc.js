@@ -31,7 +31,7 @@ module.exports = {
         'react/destructuring-assignment': 'off',
         'react/prop-types': 'off',
         'react/jsx-one-expression-per-line': 'off',
-        'no-unused-vars': 'warn',
+        'no-unused-vars': 'off',
         'jsx-a11y/no-static-element-interactions': [
             'off',
             {
@@ -56,5 +56,6 @@ module.exports = {
         quotes: 'off',
         'react/jsx-no-constructed-context-values': 'off',
         'import/no-cycle': 'off',
+        "no-param-reassign": 'off',
     },
 }

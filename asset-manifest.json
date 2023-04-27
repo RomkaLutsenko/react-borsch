@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.213ad23f.css",
-    "main.js": "/static/js/main.04ebb80d.js",
+    "main.js": "/static/js/main.9dbbc3ac.js",
     "static/media/Borsch-logo.png": "/static/media/Borsch-logo.5c8a0072a921b1fa1edc.png",
     "index.html": "/index.html",
     "main.213ad23f.css.map": "/static/css/main.213ad23f.css.map",
-    "main.04ebb80d.js.map": "/static/js/main.04ebb80d.js.map"
+    "main.9dbbc3ac.js.map": "/static/js/main.9dbbc3ac.js.map"
   },
   "entrypoints": [
     "static/css/main.213ad23f.css",
-    "static/js/main.04ebb80d.js"
+    "static/js/main.9dbbc3ac.js"
   ]
 }

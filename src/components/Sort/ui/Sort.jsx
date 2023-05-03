@@ -1,29 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { setSort } from "../../../app/slices/filterSlice";
+
+export const list = [
+    { name: 'популярности (убыванию)', sortProperty: 'rating' },
+    { name: 'популярности (возрастанию)', sortProperty: '-rating' },
+    { name: 'цене (убыванию)', sortProperty: 'price' },
+    { name: 'цене (возрастанию)', sortProperty: '-price' },
+    { name: 'алфавиту (убыванию)', sortProperty: 'title' },
+    { name: 'алфавиту (возрастанию)', sortProperty: '-title' },
+];
 
 // sort подвязан и к span'у и к popup'у и к ключу popup'а
 export const Sort = () => {
     const sort = useSelector((state) => state.filterReducer.sort)
     const dispatch = useDispatch()
+    const sortRef = useRef()
 
     const [popup, setPopup] = useState(false);
-    const list = [
-        { name: 'популярности (убыванию)', sortProperty: 'rating' },
-        { name: 'популярности (возрастанию)', sortProperty: '-rating' },
-        { name: 'цене (убыванию)', sortProperty: 'price' },
-        { name: 'цене (возрастанию)', sortProperty: '-price' },
-        { name: 'алфавиту (убыванию)', sortProperty: 'title' },
-        { name: 'алфавиту (возрастанию)', sortProperty: '-title' },
-    ];
 
     const toggleSort = (obj) => {
         dispatch(setSort(obj));
         setPopup(false);
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // Очень сложная на этот момент логика, сидел копал около 3х часов
+            const temp = event.composedPath()
+            if (!temp[2].className.includes(sortRef.current.className)) {
+                setPopup(false)
+            }
+        }
+
+        document.body.addEventListener('click', handleClickOutside)
+
+        return () => document.body.removeEventListener('click', handleClickOutside)
+    }, [])
+
     return (
-        <div className="sort">
+        <div ref={sortRef} className="sort">
             <div className="sort__label">
                 <svg
                     width="10"

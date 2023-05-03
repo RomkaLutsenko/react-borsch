@@ -1,13 +1,32 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../../app/slices/cartSlice";
+
+const typeNames = ['Черный', 'Белый']
 
 export const BorschBlock = ({
-    title, price, img, sizes, broad,
+    id, title, price, img, sizes, broad,
 }) => {
-    const [borschCount, setBorschCount] = useState(0);
     const [activeGramm, setActiveGramm] = useState(0);
     const [activeBroad, setActiveBroad] = useState(0);
 
-    const addBorsch = () => { setBorschCount(borschCount + 1); };
+    const dispatch = useDispatch()
+    const cartItem = useSelector((state) => state.cartReducer.items.find((obj) => obj.id === id))
+
+    const addedCount = cartItem ? cartItem.count : 0
+
+    const addBorsch = () => {
+        const item = {
+            id,
+            title,
+            price,
+            img,
+            type: typeNames[activeBroad],
+            size: sizes[activeGramm],
+
+        }
+        dispatch(addItem(item))
+    };
 
     return (
         <div className="borsch-block-wrapper">
@@ -61,7 +80,7 @@ export const BorschBlock = ({
                             />
                         </svg>
                         <span>Добавить</span>
-                        <i>{borschCount}</i>
+                        {addedCount > 0 && <i>{addedCount}</i>}
                     </button>
                 </div>
             </div>
